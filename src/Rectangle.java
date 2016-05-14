@@ -1,40 +1,63 @@
 /**
- * Created by andrii on 28.04.16.
+ * Class represents a rectangle with
+ * short and long sides value,
+ * and provide functional to calculate
+ * perimeter and diagonal values of it.
+ *
+ * @author Andrii Shchavinskyi
+ * @version 1.0
  */
 public class Rectangle {
 
-    private int sideOneLength;
-    private int sideTwoLength;
+    // sides value
+    private int longSideLength;
+    private int shortSideLength;
 
-    public Rectangle(int longSideLength, int shortSideLength) {
+    public Rectangle(int longSideLength, int shortSideLength) throws IllegalArgumentException {
         if (longSideLength < 1 || shortSideLength < 1) {
             throw new IllegalArgumentException("Wrong sides length values!");
         }
-        this.sideOneLength = longSideLength;
-        this.sideTwoLength = shortSideLength;
+        this.longSideLength = longSideLength;
+        this.shortSideLength = shortSideLength;
     }
 
+    /**
+     * Calculates perimeter of rectangle.
+     *
+     * @return integer value of perimeter
+     */
     public int getPerimeterValue() {
-        return (sideOneLength * 2) + (sideTwoLength * 2);
+        return (longSideLength * 2) + (shortSideLength * 2);
     }
 
+    /**
+     * Calculates diagonal length of rectangle.
+     *
+     * @return double value of diagonal length
+     */
     public double getDiagonalLength() {
-        return Math.sqrt((sideOneLength * sideOneLength) + (sideTwoLength * sideTwoLength));
+        return Math.sqrt((longSideLength * longSideLength) + (shortSideLength * shortSideLength));
     }
 
-    public int getSideOneLength() {
-        return sideOneLength;
+    public int getLongSideLength() {
+        return longSideLength;
     }
 
-    public void setSideOneLength(int sideOneLength) {
-        this.sideOneLength = sideOneLength;
+    public void setLongSideLength(int longSideLength) {
+        if (longSideLength < 1) {
+            throw new IllegalArgumentException("Side can't be with negative length value!");
+        }
+        this.longSideLength = longSideLength;
     }
 
-    public int getSideTwoLength() {
-        return sideTwoLength;
+    public int getShortSideLength() {
+        return shortSideLength;
     }
 
-    public void setSideTwoLength(int sideTwoLength) {
-        this.sideTwoLength = sideTwoLength;
+    public void setShortSideLength(int shortSideLength) {
+        if (shortSideLength < 1) {
+            throw new IllegalArgumentException("Side can't be with negative length value!");
+        }
+        this.shortSideLength = shortSideLength;
     }
 }

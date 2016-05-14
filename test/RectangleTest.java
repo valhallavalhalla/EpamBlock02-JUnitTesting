@@ -3,11 +3,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by andrii on 28.04.16.
+ * @author Andrii Shchavinskyi
+ * @version 1.0
  */
 public class RectangleTest {
 
-    public static final double ACCURACY = 1e-10;
+    private static final double ACCURACY = 1e-10;
 
     @Test
     public void testGetPerimeterValue() throws Exception {
